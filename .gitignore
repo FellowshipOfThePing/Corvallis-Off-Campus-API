@@ -41,3 +41,5 @@ text.json
 # pycache
 __pycache__/
 *.pyc
+
+*.pem
