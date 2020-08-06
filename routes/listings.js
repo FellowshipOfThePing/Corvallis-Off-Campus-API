@@ -48,7 +48,7 @@ router.get("/:school/by_address", (req, res) => {
       walk_to_campus_minutes: { $gte: req_walk_low, $lte: req_walk_high },
     },
     function (err, listings) {
-      res.json({ length: listings.length, listings: listings });
+      res.json(listings);
     }
   );
 });
