@@ -4,6 +4,10 @@ branch-defaults:
   eb-API:
     environment: Listing-API-env
     group_suffix: null
+environment-defaults:
+  Listing-API-env:
+    branch: develop
+    repository: Listing-API-Repo
 global:
   application_name: Listing_API
   branch: null
