@@ -29,7 +29,9 @@ router.get("/:school/by_address", (req, res) => {
   let req_beds_low = req.query.beds_low ? req.query.beds_low : 1;
   let req_baths_high = req.query.baths_high ? req.query.baths_high : 5;
   let req_baths_low = req.query.baths_low ? req.query.baths_low : 1;
-  let req_distance_high = req.query.distance_high ? req.query.distance_high : 50;
+  let req_distance_high = req.query.distance_high
+    ? req.query.distance_high
+    : 50;
   let req_distance_low = req.query.distance_low ? req.query.distance_low : 0;
   let req_drive_high = req.query.drive_high ? req.query.drive_high : 50;
   let req_drive_low = req.query.drive_low ? req.query.drive_low : 0;
@@ -37,15 +39,14 @@ router.get("/:school/by_address", (req, res) => {
   let req_walk_low = req.query.walk_low ? req.query.walk_low : 0;
   Addressed_Listing.find(
     {
-      price_high: { $gte: req_price_low, $lte: req_price_high },
-      beds: { $gte: req_beds_low, $lte: req_beds_high },
-      baths: { $gte: req_baths_low, $lte: req_baths_high },
-      drive_to_campus_miles: {
-        $gte: req_distance_low,
-        $lte: req_distance_high,
-      },
-      drive_to_campus_minutes: { $gte: req_drive_low, $lte: req_drive_high },
-      walk_to_campus_minutes: { $gte: req_walk_low, $lte: req_walk_high },
+      $and: [
+        { price_high: { $gte: req_price_low, $lte: req_price_high }},
+        { beds: { $gte: req_beds_low, $lte: req_beds_high }},
+        { baths: { $gte: req_baths_low, $lte: req_baths_high }},
+        { drive_to_campus_miles: { $gte: req_distance_low, $lte: req_distance_high }},
+        { drive_to_campus_minutes: { $gte: req_drive_low, $lte: req_drive_high }},
+        { walk_to_campus_minutes: { $gte: req_walk_low, $lte: req_walk_high }},
+      ],
     },
     function (err, listings) {
       res.json(listings);

@@ -6,8 +6,8 @@ branch-defaults:
     group_suffix: null
 environment-defaults:
   Listing-API-env:
-    branch: develop
-    repository: Listing-API-Repo
+    branch: null
+    repository: null
 global:
   application_name: Listing_API
   branch: null
