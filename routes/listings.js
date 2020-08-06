@@ -23,18 +23,18 @@ router.get("/:school/by_type", (req, res) => {
 // Get Address_listings
 router.get("/:school/by_address", (req, res) => {
   let Addressed_Listing = connections[req.params.school]["address_model"];
-  let req_price_high = req.body.price_high ? req.body.price_high : 10000;
-  let req_price_low = req.body.price_low ? req.body.price_low : 0;
-  let req_beds_high = req.body.beds_high ? req.body.beds_high : 5;
-  let req_beds_low = req.body.beds_low ? req.body.beds_low : 1;
-  let req_baths_high = req.body.baths_high ? req.body.baths_high : 5;
-  let req_baths_low = req.body.baths_low ? req.body.baths_low : 1;
-  let req_distance_high = req.body.distance_high ? req.body.distance_high : 50;
-  let req_distance_low = req.body.distance_low ? req.body.distance_low : 0;
-  let req_drive_high = req.body.drive_high ? req.body.drive_high : 50;
-  let req_drive_low = req.body.drive_low ? req.body.drive_low : 0;
-  let req_walk_high = req.body.walk_high ? req.body.walk_high : 100;
-  let req_walk_low = req.body.walk_low ? req.body.walk_low : 0;
+  let req_price_high = req.query.price_high ? req.query.price_high : 10000;
+  let req_price_low = req.query.price_low ? req.query.price_low : 0;
+  let req_beds_high = req.query.beds_high ? req.query.beds_high : 5;
+  let req_beds_low = req.query.beds_low ? req.query.beds_low : 1;
+  let req_baths_high = req.query.baths_high ? req.query.baths_high : 5;
+  let req_baths_low = req.query.baths_low ? req.query.baths_low : 1;
+  let req_distance_high = req.query.distance_high ? req.query.distance_high : 50;
+  let req_distance_low = req.query.distance_low ? req.query.distance_low : 0;
+  let req_drive_high = req.query.drive_high ? req.query.drive_high : 50;
+  let req_drive_low = req.query.drive_low ? req.query.drive_low : 0;
+  let req_walk_high = req.query.walk_high ? req.query.walk_high : 100;
+  let req_walk_low = req.query.walk_low ? req.query.walk_low : 0;
   Addressed_Listing.find(
     {
       price_high: { $gte: req_price_low, $lte: req_price_high },

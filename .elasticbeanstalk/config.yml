@@ -1,4 +1,6 @@
 branch-defaults:
+  develop:
+    environment: Listing-API-env
   eb-API:
     environment: Listing-API-env
     group_suffix: null
