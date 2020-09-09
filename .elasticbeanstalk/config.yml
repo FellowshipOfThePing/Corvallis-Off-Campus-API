@@ -1,0 +1,24 @@
+branch-defaults:
+  develop:
+    environment: Listing-API-env
+  eb-API:
+    environment: Listing-API-env
+    group_suffix: null
+environment-defaults:
+  Listing-API-env:
+    branch: null
+    repository: null
+global:
+  application_name: Listing_API
+  branch: null
+  default_ec2_keyname: null
+  default_platform: Node.js
+  default_region: us-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application
