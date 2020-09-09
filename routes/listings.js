@@ -40,12 +40,22 @@ router.get("/:school/by_address", (req, res) => {
   Addressed_Listing.find(
     {
       $and: [
-        { price_high: { $gte: req_price_low, $lte: req_price_high }},
-        { beds: { $gte: req_beds_low, $lte: req_beds_high }},
-        { baths: { $gte: req_baths_low, $lte: req_baths_high }},
-        { drive_to_campus_miles: { $gte: req_distance_low, $lte: req_distance_high }},
-        { drive_to_campus_minutes: { $gte: req_drive_low, $lte: req_drive_high }},
-        { walk_to_campus_minutes: { $gte: req_walk_low, $lte: req_walk_high }},
+        { price_high: { $gte: req_price_low, $lte: req_price_high } },
+        { beds: { $gte: req_beds_low, $lte: req_beds_high } },
+        { baths: { $gte: req_baths_low, $lte: req_baths_high } },
+        {
+          drive_to_campus_miles: {
+            $gte: req_distance_low,
+            $lte: req_distance_high,
+          },
+        },
+        {
+          drive_to_campus_minutes: {
+            $gte: req_drive_low,
+            $lte: req_drive_high,
+          },
+        },
+        { walk_to_campus_minutes: { $gte: req_walk_low, $lte: req_walk_high } },
       ],
     },
     function (err, listings) {
